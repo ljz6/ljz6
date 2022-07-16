@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-if="flag">v-if登录</p>
+        <p v-else>v-if注册</p>
+        <p v-show="flag">v-show注册</p>
+        <hr>
+        <!-- 下拉框 -->
+        <select>
+            <option value="0">城市</option>
+            <option value=""  v-for="city in citys">{{city}}</option>
+        </select>
+
+    </div>
+
+    <script src="lib\vue-2.6.12.js"></script>
+    <script>
+        var vm=new Vue({
+            el:"#app",
+            data:{
+                flag:true,
+                citys:["广州市","增城市","中山市"]
+            }
+        })
+      
+    </script>
+</body>
+</html>

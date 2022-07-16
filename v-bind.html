@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="imgSrc"> -->
+        <img :src="imgSrc">
+        <hr/>
+        <!-- <button @click="add"></button> -->
+        <!-- <button v-on:click="add">+</button> -->
+        <button @click="add(2)">+</button>
+        {{count}}
+        <!-- <button @click="sub"></button> -->
+        <button v-on:click="sub">-</button>
+        <hr/>
+
+  
+    <!-- 阻止事件冒泡行为 -->
+        <div style="width: 200px;height: 200px;background-color: aqua;" @click="divClick">
+            <button @click.stop="buttonClick">按钮</button>
+        </div>
+        <!-- 阻止默认行为 -->
+        <a href="http://www.gcc.edu.cn" @click.prevent="aclick">广州商学院</a>
+        
+    </div>
+<!-- 1.导入vue.js的开发环境 -->
+<script src="lib\vue-2.6.12.js"></script>
+<!-- 2.创建Vue实例 -->
+<script>
+  var vm=new Vue({
+    el:"#app",//挂载点
+    data:{//数据区
+      imgSrc:"https://www.gcc.edu.cn/2016/images/banner.png",
+      count:1
+    },
+    methods:{//方法区
+        // // add(){
+        // //     this.count--;
+        // // }//第一种
+        // add:function(){ //()括号里面是进行参数传递的
+        //     this.count++;
+        // },//第二种
+        add:function(n){
+            this.count+=n;
+        },
+        sub(){
+            this.count--;
+        },
+        divClick(){
+            console.log("div is click")
+        },
+        buttonClick(){
+            console.log("button is click")
+        },
+        aclick(){
+            // console.log("a is click")
+            alert("a is click")
+        }
+
+    }
+  })
+</script>
+  
+</body>
+</html>
